@@ -1,10 +1,17 @@
-from datetime import datetime
+from dataclasses import dataclass
+from datetime import datetime, timezone
 
+@dataclass(frozen=True)
 class Event:
-    def __init__(self,  description: str, registered_by: str) -> None:
-        self.description = description
-        self.registered_by = registered_by
-        self.registry_time = datetime.now().strftime("%Y/%m/%d %H:%M:%S")
-    
+    description: str
+    registered_by: str
+    registry_time = None
+
+    def __post_init__(self):
+        object.__setattr__(self, "registry_time", datetime.now(timezone.utc))
+
     def __str__(self) -> str:
-        return f'[{self.registry_time}] {self.description}, registered by "{self.registered_by}"'
+        return (
+            f'[{self.registry_time:%Y/%m/%d %H:%M:%S}] {self.description}, '
+            f'registered by "{self.registered_by}"'
+        )
