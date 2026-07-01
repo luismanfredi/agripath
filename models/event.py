@@ -1,6 +1,7 @@
 from dataclasses import dataclass
 from datetime import datetime, timezone
 
+
 @dataclass(frozen=True)
 class Event:
     description: str
@@ -12,6 +13,6 @@ class Event:
 
     def __str__(self) -> str:
         return (
-            f'[{self.registry_time:%Y/%m/%d %H:%M:%S}] {self.description}, '
+            f"[{self.registry_time:%Y/%m/%d %H:%M:%S}] {self.description}, "
             f'registered by "{self.registered_by}"'
         )

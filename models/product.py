@@ -1,5 +1,7 @@
 from dataclasses import dataclass
+
 from event import Event
+
 
 @dataclass
 class Product:
@@ -13,9 +15,9 @@ class Product:
 
     def __str__(self) -> str:
         return f"{self.name} - {self.id}"
-    
+
     def add_event(self, description: str, registered_by: str) -> None:
-            self.events.append(Event(description, registered_by))
+        self.events.append(Event(description, registered_by))
 
     def print_history(self) -> None:
         print(self)
