@@ -6,7 +6,7 @@
 
 A system that tracks the journey of an agricultural product from its origin to the final consumer.
 
-⚠️ **Alpha software.** AgriPath is in early development. Expect breaking changes, missing features, and an evolving architecture until a stable release is tagged.
+> ⚠️ **Alpha software.** AgriPath is in early development. Expect breaking changes, missing features, and an evolving architecture until a stable release is tagged.
 
 ## About
 
