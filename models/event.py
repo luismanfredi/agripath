@@ -6,9 +6,9 @@ from datetime import datetime, timezone
 class Event:
     description: str
     registered_by: str
-    registry_time = None
+    registry_time: datetime | None = None
 
-    def __post_init__(self):
+    def __post_init__(self) -> None:
         object.__setattr__(self, "registry_time", datetime.now(timezone.utc))
 
     def __str__(self) -> str:

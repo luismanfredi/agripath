@@ -1,20 +1,20 @@
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 
-from event import Event
+from models.event import Event
 
 
 @dataclass
 class Product:
-    id: str
+    id_: str
     name: str
-    events: list[Event] = None
+    events: list[Event] = field(default_factory=list)
 
-    def __post_init__(self):
+    def __post_init__(self) -> None:
         if self.events is None:
-            self.events = []
+            self.events: list[Event] = []
 
     def __str__(self) -> str:
-        return f"{self.name} - {self.id}"
+        return f"{self.name} - {self.id_}"
 
     def add_event(self, description: str, registered_by: str) -> None:
         self.events.append(Event(description, registered_by))
