@@ -14,9 +14,3 @@ class Product:
 
     def add_event(self, description: str, registered_by: str) -> None:
         self.events.append(Event(description, registered_by))
-
-    def print_history(self) -> None:
-        print(self)
-        for item in self.events:
-            print(item)
-            

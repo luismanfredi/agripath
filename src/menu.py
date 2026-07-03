@@ -1,4 +1,5 @@
 from models.product import Product
+from src.display import print_history
 
 products: list[Product] = []
 
@@ -83,7 +84,7 @@ def menu() -> None:
 
             print("----Products----")
             for product in products:
-                product.print_history()
+                print_history(product)
 
         elif option == "4":
             break
