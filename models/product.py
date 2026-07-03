@@ -19,3 +19,4 @@ class Product:
         print(self)
         for item in self.events:
             print(item)
+            

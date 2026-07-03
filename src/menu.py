@@ -17,8 +17,19 @@ def menu() -> None:
         print("-" * 40)
 
         if option == "1":
-            id_ = input("Enter the Product Id: ")
-            name = input("Enter the Product name: ")
+            id_: str = input("Enter the Product Id: ")
+            id_repeated: bool = False
+
+            for product in products:
+                if product.id_ == id_:
+                    print("A Product with this id already exist. Try again!")
+                    id_repeated = True
+                    break
+
+            if id_repeated:
+                continue
+
+            name: str = input("Enter the Product name: ")
 
             if not id_ or not name:
                 print("Description and register name cannot be empty!")
@@ -31,7 +42,7 @@ def menu() -> None:
                 print("No Product registered. Add a Product to continue!")
                 continue
 
-            print("\n----Products----")
+            print("----Products----")
             for index, product in enumerate(products):
                 print(f"{index + 1}. {product}")
             print("-" * 40)
@@ -44,7 +55,7 @@ def menu() -> None:
                 continue
 
             try:
-                chosen_product = int(user_input)
+                chosen_product: int = int(user_input)
             except ValueError:
                 print(f"{user_input} is not a valid number. Please try again.")
                 continue
