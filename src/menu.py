@@ -1,7 +1,10 @@
+from enums.event_type import EventType
 from models.product import Product
 from src.display import print_history
+from utils.option import choose_index
 
 products: list[Product] = []
+event_types: list[EventType] = list(EventType)
 
 
 def menu() -> None:
@@ -44,28 +47,24 @@ def menu() -> None:
                 continue
 
             print("----Products----")
-            for index, product in enumerate(products):
-                print(f"{index + 1}. {product}")
-            print("-" * 40)
+            product_index = choose_index(
+                labels=[str(product) for product in products],
+                prompt="Chose a Product to add a Event (or 0 to cancel): ",
+            )
 
-            user_input: str = input("Chose a Product to add a Event (or 0 to cancel): ")
-            print("-" * 40)
-
-            if user_input == "0":
-                print("Operation cancelled.")
+            if product_index is None:
                 continue
 
-            try:
-                chosen_product: int = int(user_input)
-            except ValueError:
-                print(f"{user_input} is not a valid number. Please try again.")
+            print("----Event Types----")
+            event_index = choose_index(
+                labels=[event.label for event in event_types],
+                prompt="Chose an Event type (or 0 to cancel): ",
+            )
+
+            if event_index is None:
                 continue
 
-            if not (1 <= chosen_product <= len(products)):
-                print(
-                    f"Product not found! Choose a number between 1 and {len(products)}!"
-                )
-                continue
+            event_type: EventType = event_types[event_index]
 
             description: str = input("Enter the Event description: ").strip()
             registered_by: str = input("Enter whose registering: ").strip()
@@ -74,7 +73,9 @@ def menu() -> None:
                 print("Decription and register name cannot be empty!")
                 continue
 
-            products[chosen_product - 1].add_event(description, registered_by)
+            products[product_index].add_event(
+                event_type, description, registered_by
+            )
             print("Event added successfully!")
 
         elif option == "3":
