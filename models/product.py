@@ -9,10 +9,6 @@ class Product:
     name: str
     events: list[Event] = field(default_factory=list)
 
-    def __post_init__(self) -> None:
-        if self.events is None:
-            self.events: list[Event] = []
-
     def __str__(self) -> str:
         return f"{self.name} - {self.id_}"
 

@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from datetime import datetime, timezone
+from datetime import datetime
 
 
 @dataclass(frozen=True)
@@ -9,7 +9,8 @@ class Event:
     registry_time: datetime | None = None
 
     def __post_init__(self) -> None:
-        object.__setattr__(self, "registry_time", datetime.now(timezone.utc))
+        if self.registry_time is None:
+            object.__setattr__(self, "registry_time", datetime.now(datetime.utc))
 
     def __str__(self) -> str:
         return (

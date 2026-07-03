@@ -21,7 +21,7 @@ def menu() -> None:
             name = input("Enter the Product name: ")
 
             if not id_ or not name:
-                print("Decription and register name cannot be empty!")
+                print("Description and register name cannot be empty!")
                 continue
 
             products.append(Product(id_, name))
