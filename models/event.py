@@ -1,9 +1,12 @@
 from dataclasses import dataclass
 from datetime import UTC, datetime
 
+from enums.event_type import EventType
+
 
 @dataclass(frozen=True)
 class Event:
+    event_type: EventType
     description: str
     registered_by: str
     registry_time: datetime | None = None

@@ -1,5 +1,6 @@
 from dataclasses import dataclass, field
 
+from enums.event_type import EventType
 from models.event import Event
 
 
@@ -12,5 +13,7 @@ class Product:
     def __str__(self) -> str:
         return f"{self.name} - {self.id_}"
 
-    def add_event(self, description: str, registered_by: str) -> None:
-        self.events.append(Event(description, registered_by))
+    def add_event(
+        self, event_type: EventType, description: str, registered_by: str
+    ) -> None:
+        self.events.append(Event(event_type, description, registered_by))
