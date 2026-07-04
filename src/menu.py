@@ -1,7 +1,7 @@
 from enums.event_type import EventType
 from models.product import Product
 from src.display import print_history
-from utils.option import choose_index
+from utils.prompt import choose_index
 
 products: list[Product] = []
 event_types: list[EventType] = list(EventType)
@@ -41,6 +41,8 @@ def menu() -> None:
 
             products.append(Product(id_, name))
 
+            print("Product saved successfully!")
+
         elif option == "2":
             if not products:
                 print("No Product registered. Add a Product to continue!")
@@ -73,9 +75,7 @@ def menu() -> None:
                 print("Decription and register name cannot be empty!")
                 continue
 
-            products[product_index].add_event(
-                event_type, description, registered_by
-            )
+            products[product_index].add_event(event_type, description, registered_by)
             print("Event added successfully!")
 
         elif option == "3":
