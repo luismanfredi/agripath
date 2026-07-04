@@ -8,6 +8,13 @@ authors = [
     { name = "Luís Antonio Manfredi Sodré", email = "luismanfredi920@gmail.com"}
 ]
 
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "ruff",
+    "mypy",
+]
+
 [tool.ruff]
 line-length = 88
 target-version = "py312"
