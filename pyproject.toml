@@ -1,18 +1,18 @@
 [project]
 name = "agripath"
-version = "unreleased"
+version = "0.2.0a0"
 description = "A system that tracks the journey of an agricultural product from its origin to the final consumer."
 readme = "README.md"
-requires-python = ">=3.12.3"
+requires-python = ">=3.12"
 authors = [
     { name = "Luís Antonio Manfredi Sodré", email = "luismanfredi920@gmail.com"}
 ]
 
 [project.optional-dependencies]
 dev = [
-    "pytest",
-    "ruff",
-    "mypy",
+    "pytest>=9.1.1,<10",
+    "ruff>=0.15.10,<0.16",
+    "mypy>=2.1.0,<3",
 ]
 
 [tool.ruff]
@@ -29,8 +29,12 @@ indent-style = "space"
 
 [tool.mypy]
 python_version = "3.12"
-strict = "true"
+strict = true
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 pythonpath = ["."]
+
+[build-system]
+requires = ["setuptools>=80"]
+build-backend = "setuptools.build_meta"
