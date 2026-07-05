@@ -12,3 +12,6 @@ __pycache__/
 
 # Pytest Cache
 .pytest_cache
+
+# Egg-info
+*.egg-info/
