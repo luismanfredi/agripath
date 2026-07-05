@@ -66,7 +66,7 @@ agripath/
 │   ├── event.py
 │   └── product.py
 ├── src/
-│   └── menu.py         # CLI menu                     
+│   └── menu.py         # CLI menu
 ├── .gitignore
 ├── main.py
 ├── pyproject.toml
