@@ -2,23 +2,24 @@ from enums.event_type import EventType
 from models.product import Product
 from src.display import print_history
 from utils.prompt import choose_index
+from utils.separator import separator
 
 products: list[Product] = []
 event_types: list[EventType] = list(EventType)
 
 
 def menu() -> None:
-    print("-" * 40)
+    separator()
     print("Welcome to AgriPath!")
     while True:
-        print("-" * 40)
+        separator()
         print("1. Add a Product")
         print("2. Add an Event to a Product")
         print("3. Show Products and Events")
         print("4. Quit")
-        print("-" * 40)
+        separator()
         option: str = input("Which option would you like to use? ").strip()
-        print("-" * 40)
+        separator()
 
         if option == "1":
             id_: str = input("Enter the Product Id: ")
