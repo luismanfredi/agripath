@@ -1,4 +1,4 @@
-from models.product import Product
+from agripath.models.product import Product
 
 
 def print_history(product: Product) -> None:

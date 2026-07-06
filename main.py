@@ -1,4 +1,4 @@
-from src.menu import menu
+from src.agripath.cli.menu import menu
 
 
 def main() -> None:

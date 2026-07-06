@@ -1,8 +1,8 @@
-from enums.event_type import EventType
-from models.product import Product
-from src.display import print_history
-from utils.prompt import choose_index
-from utils.separator import separator
+from agripath.cli.display import print_history
+from agripath.enums.event_type import EventType
+from agripath.models.product import Product
+from agripath.utils.prompt import choose_index
+from agripath.utils.separator import separator
 
 products: list[Product] = []
 event_types: list[EventType] = list(EventType)
