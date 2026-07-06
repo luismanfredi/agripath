@@ -1,6 +1,7 @@
 # AgriPath 🌾
 
 ![Python](https://img.shields.io/badge/python-3.12-blue)
+[![CI](https://github.com/luismanfredi/agripath/actions/workflows/ci.yml/badge.svg?branch=main&event=push)](https://github.com/luismanfredi/agripath/actions/workflows/ci.yml)
 ![License](https://img.shields.io/badge/license-MIT-green)
 ![Status](https://img.shields.io/badge/status-alpha-orange)
 
@@ -61,16 +62,11 @@ One of the most important design decisions is that Events are immutable. Once cr
 
 ```
 agripath/
-├── assets/
-├── models/             # Models classes
-│   ├── event.py
-│   └── product.py
-├── src/
-│   └── menu.py         # CLI menu
-├── .gitignore
-├── main.py
-├── pyproject.toml
-└── README.md
+├── assets/            # README images
+├── src/agripath/      # Core application code
+├── tests/             # Tests
+├── main.py            # Entry point
+└── pyproject.toml
 ```
 
 ## Getting Started
@@ -106,7 +102,11 @@ Windows:
 .venv\Scripts\activate
 ```
 
-> **Note:** AgriPath currently has no external dependencies — no `pip install` step is required.
+3. Install dependencies
+
+```bash
+pip install -e ".[dev]"
+```
 
 ### Usage
 
