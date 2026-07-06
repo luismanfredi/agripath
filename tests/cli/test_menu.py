@@ -3,8 +3,8 @@ from datetime import UTC, datetime
 import pytest
 from pytest import CaptureFixture, MonkeyPatch
 
-import src.menu as menu_mod
-from src.menu import menu
+import src.agripath.cli.menu as menu_mod
+from src.agripath.cli.menu import menu
 
 
 @pytest.fixture(autouse=True)

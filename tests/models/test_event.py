@@ -2,8 +2,8 @@ from dataclasses import FrozenInstanceError
 
 import pytest
 
-from enums.event_type import EventType
-from models.event import Event
+from agripath.enums.event_type import EventType
+from agripath.models.event import Event
 
 
 @pytest.fixture

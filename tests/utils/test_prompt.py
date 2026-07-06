@@ -1,7 +1,7 @@
 import pytest
 from pytest import MonkeyPatch
 
-from utils.prompt import ask_int, choose_index
+from agripath.utils.prompt import ask_int, choose_index
 
 
 @pytest.mark.parametrize(

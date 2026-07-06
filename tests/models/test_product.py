@@ -1,7 +1,7 @@
 import pytest
 
-from enums.event_type import EventType
-from models.product import Product
+from agripath.enums.event_type import EventType
+from agripath.models.product import Product
 
 
 @pytest.fixture
