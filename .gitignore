@@ -15,3 +15,6 @@ __pycache__/
 
 # Egg-info
 *.egg-info/
+
+# .env
+.env
