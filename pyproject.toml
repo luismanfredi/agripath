@@ -7,6 +7,10 @@ requires-python = ">=3.12"
 authors = [
     { name = "Luís Antonio Manfredi Sodré", email = "luismanfredi920@gmail.com"}
 ]
+dependencies = [
+    "psycopg>=3.3.4",
+    "sqlalchemy>=2.0.51",
+]
 
 [dependency-groups]
 dev = [
