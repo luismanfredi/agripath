@@ -1,6 +1,7 @@
 from collections.abc import Sequence
 
 from sqlalchemy import select
+from sqlalchemy.exc import IntegrityError
 
 from agripath.db.database import SessionLocal
 from agripath.db.db_models import EventORM, ProductORM
@@ -17,7 +18,11 @@ def save_product(product: Product) -> None:
     orm: ProductORM = product_to_orm(product)
     with SessionLocal() as session:
         session.add(orm)
-        session.commit()
+        try:
+            session.commit()
+        except IntegrityError as e:
+            session.rollback()
+            raise ValueError(f"Product with id '{product.id_}' already exists'") from e
 
 
 def get_product(product_id: str) -> Product | None:
