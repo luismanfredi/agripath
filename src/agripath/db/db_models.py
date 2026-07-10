@@ -7,7 +7,7 @@ from agripath.db.database import Base
 
 
 class ProductORM(Base):
-    __tablename__ = "products"
+    __tablename__: str = "products"
 
     id: Mapped[str] = mapped_column(primary_key=True)
     name: Mapped[str] = mapped_column(String(100))
@@ -15,9 +15,9 @@ class ProductORM(Base):
 
 
 class EventORM(Base):
-    __tablename__ = "events"
+    __tablename__: str = "events"
 
-    id: Mapped[str] = mapped_column(primary_key=True, autoincrement=True)
+    id: Mapped[int] = mapped_column(primary_key=True, autoincrement=True)
     event_type: Mapped[str] = mapped_column(String(50))
     description: Mapped[str] = mapped_column(String(255))
     registered_by: Mapped[str] = mapped_column(String(100))
