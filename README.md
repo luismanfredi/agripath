@@ -37,26 +37,23 @@ One of the most important design decisions is that Events are immutable. Once cr
 
 - [X] Simple CLI menu
 - [X] Register Product and Events
-- [X] Save a list of Products
-- [X] Display Product and Events
-
+- [X] Display Product and Event history
+- [X] PostgreSQL persistence layer via SQLAlchemy ORM
 
 ## Demo
 
-**Main CLI Menu**:
-
-![Main CLI menu](assets/main_menu.png)
-
-**History Menu**:
-
-![History Menu](assets/history_menu.png)
+![Agripath Demo](assets/demo.gif)
 
 ## Tech Stack
 
 
 | Stack | Usage                  |
 |------------|-----------------------|
-| Python         | Backend Language      |
+| Python                  | Backend language                         |
+| PostgreSQL              | Relational database                      |
+| SQLAlchemy              | ORM                                      |
+| psycopg                 | PostgreSQL database driver               |
+| Docker / Docker Compose | Containerized local database environment |
 
 ## Project Structure
 
@@ -69,22 +66,40 @@ agripath/
 └── pyproject.toml
 ```
 
+## Architecture
+
+```mermaid
+flowchart LR
+
+    User --> CLI
+    CLI --> Services
+    Services --> SQLAlchemy
+    SQLAlchemy --> psycopg
+    psycopg --> PostgreSQL
+```
+
 ## Getting Started
 
 ### Prerequisites
 
-- Python 3.12.3 or lower
+- Docker and Docker Compose
+- Python 3.12+
+- [uv](https://docs.astral.sh/uv/)
 
 ### Installation
 
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/luis-manfredi/agripath.git
+git clone https://github.com/luismanfredi/agripath.git
 cd agripath
 ```
+2. Copy the example environment file and adjust if needed
+```bash
+cp .env.example .env
+```
 
-2. (Optional) Create a virtual enviroment:
+3. (Optional) Create a virtual environment:
 
 ```bash
 python -m venv .venv
@@ -102,23 +117,32 @@ Windows:
 .venv\Scripts\activate
 ```
 
-3. Install dependencies
+4. Start the PostgreSQL container
+```bash
+docker compose up -d
+```
+
+5. Install dependencies
 
 ```bash
-pip install -e ".[dev]"
+uv sync
+```
+
+6. Initialize the database schema
+```bash
+uv run python src/agripath/db/init_db.py
 ```
 
 ### Usage
 
 Run the CLI:
 ```bash
-python main.py
+uv run python main.py
 ```
 
 ## Roadmap
 
-- [ ] Persist data with PostgreSQL
-- [ ] REST API
+- [ ] REST API (FastAPI)
 - [ ] Multi-actor authentication
 
 ## License
