@@ -7,6 +7,26 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v0.5.1-alpha] - 2026-07-10
+
+### Removed
+- Remove bugged CLI test
+
+## [v0.5.0-alpha] - 2026-07-10
+
+### Added
+- Add PostgreSQL and SQLAlchemy persistence
+- Add Docker compose
+
+### Changed
+- Improve and change CLI Menu
+- Adapt REAMDE.md to persistence
+
+## [v0.4.0-alpha] - 2026-07-06
+
+### Fixed
+- Fixed repository
+
 ## [v0.3.2-alpha] - 2026-07-06
 
 ### Added
